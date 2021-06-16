@@ -12,7 +12,8 @@ pipeline {
             }
             post {
                 always {
-                    gatlingArchive()
+                    echo 'Archive old report..'
+//                     gatlingArchive()
                 }
             }
         }
