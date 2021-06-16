@@ -1,5 +1,9 @@
 pipeline {
     agent any
+        tools {
+        maven 'Maven 3.8.1'
+        jdk 'JDK 1.8'
+    }
     stages {
         stage("Build Maven") {
             steps {
@@ -8,7 +12,7 @@ pipeline {
         }
         stage("Run Gatling Test") {
             steps {
-                sh 'mvn clean test-compile gatling:test -Dgatling.simulationClass=performance.UserInfoSimulation'
+                sh 'mvn clean test-compile gatling:test'
             }
             post {
                 always {
